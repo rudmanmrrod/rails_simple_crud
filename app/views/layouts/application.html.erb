@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prueba</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+	  <nav class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<%= link_to "Prueba Rails", root_path, class: "navbar-brand"%>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li><%= link_to "Perfil", "/perfil"%></li>
+			</ul>
+		</div>
+	  </nav>
+
+	  <div class="container">
+	    <%= yield %>
+	  </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<div class="row">
+	<h1>Perfiles</h1>
+	<%= link_to 'Crear nuevo Perfil', new_perfil_path ,class:'btn btn-success' %>
+	<% @profiles.each do |p| %>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ul>
+					<li><b>Nombre: </b><%= p.name %></li>
+					<li><b>Profesión: </b><%= p.profession %></li>
+					<li><b>Edad: </b><%= p.age %></li>
+				<ul>
+			</div>
+			<div class="panel-footer">
+				<%= link_to 'Ver', perfil_path(:id => p.id) ,class:'btn btn-info' %>
+				<%= link_to 'Editar', edit_perfil_path(:id => p.id) ,class:'btn btn-success' %>
+				<%= link_to 'Eliminar',url_for(action: :destroy,id: p.id),method: :delete, data: {confirm: "¿Deseas borrar este registro?"}, class:'btn btn-danger' %>
+			</div>
+		</div>
+	<% end %>
+</div>

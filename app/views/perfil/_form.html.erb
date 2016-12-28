@@ -1,0 +1,51 @@
+<h1><%= name %> Perfil</h1><hr>
+<%= form_for @profile,url:{action:accion} do |p|  %>
+	<div class="form-group row <%if @profile.errors[:name].count>0 %> has-error <%end%>">
+		<div class="col-md-3">
+			<label class="control-label">Nombre: </label>
+		</div>
+		<div class="col-md-8">
+			<%= p.text_field :name, class:"form-control" %>
+		</div>
+	</div>
+	<%if @profile.errors[:name].count>0 %>
+		<div class="alert alert-danger">
+			<% @profile.errors[:name].each do |e| %>
+  				<strong>Error!</strong> <%= e %>
+  			<% end %>
+		</div>
+	<%end%>
+	<div class="form-group row <%if @profile.errors[:profession].count>0 %> has-error <%end%>">
+		<div class="col-md-3">
+			<label class="control-label">Profesión: </label>
+		</div>
+		<div class="col-md-8">
+			<%= p.text_field :profession, class:"form-control" %>
+		</div>
+	</div>
+	<%if @profile.errors[:profession].count>0 %>
+		<div class="alert alert-danger">
+			<% @profile.errors[:profession].each do |e| %>
+  				<strong>Error!</strong> <%= e %>
+  			<% end %>
+		</div>
+	<%end%>
+	<div class="form-group row <%if @profile.errors[:age].count>0 %> has-error <%end%>">
+		<div class="col-md-3">
+			<label class="control-label">Edad: </label>
+		</div>
+		<div class="col-md-8">
+			<%= p.text_field :age, class:"form-control" %>
+		</div>
+	</div>
+	<%if @profile.errors[:age].count>0 %>
+		<div class="alert alert-danger">
+			<% @profile.errors[:age].each do |e| %>
+  				<strong>Error!</strong> <%= e %>
+  			<% end %>
+		</div>
+	<%end%>
+	<div class="form-group row">
+		<%= p.submit "Guardar", class:"btn btn-success" %>
+	</div>
+<% end %>
